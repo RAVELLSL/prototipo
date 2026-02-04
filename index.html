@@ -1188,7 +1188,418 @@
             grid-template-columns: 1fr;
         }
 
-        /* Responsividade */
+        /* =========================================== */
+        /* APENAS PARA MOBILE (max-width: 768px) - CÓDIGO ATUALIZADO */
+        /* =========================================== */
+
+        @media (max-width: 768px) {
+            /* Reset de algumas propriedades desktop */
+            .container {
+                flex-direction: column;
+                gap: 15px;
+                padding-top: 10px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .reader-tools {
+                display: none !important;
+            }
+            
+            .reader-tools.mobile-open {
+                display: block !important;
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+                padding: 20px;
+                max-height: 500px;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Header otimizado para mobile */
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                padding: 15px 0;
+                margin-bottom: 5px;
+                background-color: rgba(250, 245, 235, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .dark-theme header {
+                background-color: rgba(40, 30, 20, 0.95);
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--primary);
+                cursor: pointer;
+                padding: 10px;
+                border-radius: var(--border-radius-sm);
+                transition: var(--transition);
+                z-index: 101;
+            }
+            
+            .mobile-menu-toggle:hover {
+                background-color: rgba(139, 90, 43, 0.1);
+            }
+            
+            .mobile-menu-toggle.active {
+                background-color: var(--primary);
+                color: var(--bg-paper);
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                margin-top: 10px;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .logo-title {
+                font-size: 1.5rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.85rem;
+            }
+            
+            /* Conteúdo do livro otimizado para mobile */
+            .book-content-container {
+                min-height: calc(100vh - 250px);
+                margin-bottom: 80px; /* Espaço para navegação inferior */
+            }
+            
+            .book-content {
+                padding: 25px 20px;
+                min-height: calc(100vh - 250px);
+                font-size: 1.05rem;
+                line-height: 1.7;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Tamanhos de fonte ajustados para mobile */
+            .cover-title {
+                font-size: 2.5rem;
+                padding-top: 30px;
+                margin-bottom: 20px;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 40px;
+            }
+            
+            .book-page h2 {
+                font-size: 1.7rem;
+                margin-bottom: 25px;
+                padding-bottom: 10px;
+            }
+            
+            .poem-title {
+                font-size: 1.3rem;
+                margin: 25px 0 12px;
+            }
+            
+            .poem-title::before, .poem-title::after {
+                display: none; /* Remover símbolos em mobile */
+            }
+            
+            .poem p {
+                font-size: 1.05rem;
+                margin-bottom: 12px;
+            }
+            
+            .bio-author-name {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin-bottom: 12px;
+            }
+            
+            .bio-author-period {
+                padding-left: 0;
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+            
+            .bio-author-description {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            /* Sumário otimizado para mobile */
+            .toc-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                padding: 12px 0;
+            }
+            
+            .toc-item-title {
+                font-size: 1rem;
+            }
+            
+            .toc-item-page {
+                text-align: left;
+                width: 100%;
+                font-size: 0.9rem;
+            }
+            
+            /* Navegação inferior fixa para mobile */
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-paper);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                border-top: 1px solid var(--border);
+                padding: 12px 15px;
+                z-index: 90;
+                box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .dark-theme .mobile-bottom-nav {
+                background-color: var(--bg-paper-dark);
+            }
+            
+            .mobile-nav-btn {
+                background-color: var(--primary);
+                color: var(--bg-paper);
+                border: none;
+                padding: 12px 15px;
+                border-radius: var(--border-radius-md);
+                cursor: pointer;
+                transition: var(--transition);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                font-family: var(--font-heading);
+                font-weight: 500;
+                font-size: 0.9rem;
+                flex: 1;
+                min-height: 48px;
+            }
+            
+            .mobile-nav-btn:active {
+                transform: scale(0.98);
+                background-color: var(--primary-hover);
+            }
+            
+            .mobile-nav-btn i {
+                font-size: 1.1rem;
+            }
+            
+            .mobile-nav-btn span {
+                display: block;
+            }
+            
+            .mobile-page-indicator {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                background-color: rgba(255, 255, 255, 0.6);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                padding: 10px 15px;
+                border-radius: var(--border-radius-md);
+                border: 1px solid var(--border);
+                font-family: var(--font-heading);
+                font-weight: 500;
+                font-size: 0.9rem;
+                min-width: 120px;
+            }
+            
+            .dark-theme .mobile-page-indicator {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            
+            /* Botões de ação rápida flutuantes */
+            .mobile-quick-actions {
+                position: fixed;
+                bottom: 70px;
+                right: 15px;
+                z-index: 80;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .mobile-quick-btn {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: var(--primary);
+                color: var(--bg-paper);
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                cursor: pointer;
+                transition: var(--transition);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+            
+            .mobile-quick-btn:active {
+                transform: scale(0.95);
+                background-color: var(--primary-hover);
+            }
+            
+            .mobile-quick-btn.bookmark-btn.active {
+                background-color: var(--accent);
+            }
+            
+            /* Notificações mobile */
+            .mobile-notification {
+                position: fixed;
+                top: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: var(--primary);
+                color: var(--bg-paper);
+                padding: 12px 20px;
+                border-radius: var(--border-radius-md);
+                box-shadow: var(--shadow-md);
+                z-index: 1000;
+                font-family: var(--font-heading);
+                animation: slideDown 0.3s ease;
+                border-left: 4px solid var(--accent);
+                max-width: 90%;
+                text-align: center;
+            }
+            
+            @keyframes slideDown {
+                from { 
+                    opacity: 0;
+                    transform: translate(-50%, -20px);
+                }
+                to { 
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+            }
+            
+            /* Footer mobile */
+            footer {
+                margin-top: 20px;
+                padding: 20px 0;
+                font-size: 0.8rem;
+            }
+            
+            .footer-icons {
+                gap: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .footer-icon {
+                font-size: 1.1rem;
+            }
+            
+            /* Ajustes para landscape */
+            @media (max-width: 768px) and (orientation: landscape) {
+                .book-content {
+                    padding: 20px;
+                    min-height: calc(100vh - 150px);
+                }
+                
+                .mobile-bottom-nav {
+                    padding: 10px 15px;
+                }
+                
+                .mobile-nav-btn {
+                    padding: 10px 12px;
+                    min-height: 44px;
+                    font-size: 0.85rem;
+                }
+                
+                .reader-tools.mobile-open {
+                    max-height: 300px;
+                }
+            }
+            
+            /* Smartphones muito pequenos */
+            @media (max-width: 360px) {
+                .logo-title {
+                    font-size: 1.2rem;
+                }
+                
+                .logo-subtitle {
+                    font-size: 0.75rem;
+                }
+                
+                .mobile-nav-btn span {
+                    display: none;
+                }
+                
+                .mobile-nav-btn i {
+                    font-size: 1.2rem;
+                }
+                
+                .mobile-page-indicator {
+                    min-width: 100px;
+                    font-size: 0.85rem;
+                    padding: 8px 12px;
+                }
+                
+                .book-content {
+                    padding: 20px 15px;
+                }
+                
+                .cover-title {
+                    font-size: 2rem;
+                }
+                
+                .mobile-quick-actions {
+                    bottom: 60px;
+                    right: 10px;
+                }
+                
+                .mobile-quick-btn {
+                    width: 45px;
+                    height: 45px;
+                    font-size: 1.1rem;
+                }
+            }
+            
+            /* Prevenir zoom em inputs no iOS */
+            @media screen and (max-width: 768px) {
+                input, select, textarea {
+                    font-size: 16px !important;
+                }
+            }
+        }
+
+        /* Responsividade existente mantida */
         @media (max-width: 1200px) {
             .reader-tools {
                 width: 250px;
@@ -1200,94 +1611,8 @@
         }
 
         @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .reader-tools {
-                width: 100%;
-                position: static;
-                margin-bottom: 20px;
-            }
-            
-            .book-content {
-                padding: 40px;
-            }
-            
-            .cover-title {
-                font-size: 3rem;
-                padding-top: 40px;
-            }
-            
-            .cover-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .poem-title::before {
-                left: 10%;
-            }
-            
-            .poem-title::after {
-                right: 10%;
-            }
-            
             .tools-collapse-btn {
                 display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-            
-            .reader-tools {
-                display: none;
-                padding: 20px;
-            }
-            
-            .reader-tools.mobile-open {
-                display: block;
-            }
-            
-            .book-content {
-                padding: 30px;
-            }
-            
-            .cover-title {
-                font-size: 2.5rem;
-                padding-top: 30px;
-            }
-            
-            .cover-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .book-page h2 {
-                font-size: 1.7rem;
-            }
-            
-            .poem-title::before, .poem-title::after {
-                display: none;
-            }
-            
-            .bio-author-name {
-                font-size: 1.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-            
-            .bio-author-period {
-                padding-left: 0;
             }
         }
 
@@ -1312,26 +1637,6 @@
             
             .container {
                 padding: 0 15px;
-            }
-            
-            .cover-title {
-                font-size: 2rem;
-                padding-top: 20px;
-            }
-            
-            .cover-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .toc-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            
-            .toc-item-page {
-                text-align: left;
-                width: 100%;
             }
         }
     </style>
@@ -1850,7 +2155,7 @@
                             <p>disse: Vai, Carlos! ser gauche na vida.</p>
                             <br>
                             <p>As casas espiam os homens</p>
-                            <p>que correm atrás de mulheres.</p>
+                            <p>que corren atrás de mulheres.</p>
                             <p>A tarde talvez fosse azul,</p>
                             <p>não houvesse tantos desejos.</p>
                             <br>
@@ -2018,7 +2323,8 @@
             fontSize: 'medium',
             theme: 'light',
             bookmarks: [1, 4], // Atualizado para refletir novas páginas
-            toolsCollapsed: false
+            toolsCollapsed: false,
+            isMobile: window.innerWidth <= 768
         };
 
         // Elementos DOM
@@ -2040,6 +2346,14 @@
         const readerTools = document.getElementById('reader-tools');
         const toolsCollapseBtn = document.getElementById('tools-collapse-btn');
 
+        // Elementos mobile
+        const mobileBottomNav = document.createElement('div');
+        const mobileQuickActions = document.createElement('div');
+
+        // ===========================================
+        // FUNÇÕES EXISTENTES
+        // ===========================================
+
         // Carregar configurações salvas
         function loadSettings() {
             const savedSettings = localStorage.getItem('ebookSettings');
@@ -2048,7 +2362,7 @@
                 ebookConfig.currentPage = settings.currentPage || 1;
                 ebookConfig.fontSize = settings.fontSize || 'medium';
                 ebookConfig.theme = settings.theme || 'light';
-                ebookConfig.bookmarks = settings.bookmarks || [1, 4]; // Atualizado
+                ebookConfig.bookmarks = settings.bookmarks || [1, 4];
                 ebookConfig.toolsCollapsed = settings.toolsCollapsed || false;
                 
                 // Aplicar configurações carregadas
@@ -2106,6 +2420,15 @@
                 
                 // Scroll para o topo do conteúdo
                 bookContent.scrollTop = 0;
+                
+                // Mostrar notificação de página (apenas mobile)
+                if (ebookConfig.isMobile && pageNumber > 1) {
+                    showMobileNotification(`Página ${pageNumber}`);
+                }
+                
+                // Atualizar navegação mobile
+                updateMobileBottomNav();
+                updateQuickBookmarkButton();
             }
         }
 
@@ -2183,12 +2506,21 @@
             // Atualizar exibição dos bookmarks
             updateBookmarksDisplay();
             
+            // Atualizar botão de bookmark rápido (mobile)
+            updateQuickBookmarkButton();
+            
             // Salvar configurações
             saveSettings();
         }
 
         // Mostrar notificação
         function showNotification(message) {
+            // Em mobile, usar a notificação mobile
+            if (ebookConfig.isMobile) {
+                showMobileNotification(message);
+                return;
+            }
+            
             // Criar elemento de notificação
             const notification = document.createElement('div');
             notification.textContent = message;
@@ -2270,6 +2602,7 @@
                         updateBookmarksDisplay();
                         if (page === ebookConfig.currentPage) {
                             updateBookmarkButton();
+                            updateQuickBookmarkButton();
                         }
                         saveSettings();
                         showNotification('Marcador removido.');
@@ -2331,6 +2664,223 @@
             saveSettings();
         }
 
+        // ===========================================
+        // FUNÇÕES MOBILE ESPECÍFICAS
+        // ===========================================
+
+        // Criar navegação inferior para mobile
+        function createMobileBottomNav() {
+            if (!ebookConfig.isMobile) return;
+            
+            // Criar container de navegação inferior
+            mobileBottomNav.className = 'mobile-bottom-nav';
+            mobileBottomNav.innerHTML = `
+                <button class="mobile-nav-btn" id="bottom-prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Anterior</span>
+                </button>
+                
+                <div class="mobile-page-indicator">
+                    <span id="bottom-current-page">1</span>
+                    <span>de</span>
+                    <span id="bottom-total-pages">8</span>
+                </div>
+                
+                <button class="mobile-nav-btn" id="bottom-next-btn">
+                    <span>Próxima</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+            
+            document.querySelector('.main-content').appendChild(mobileBottomNav);
+            
+            // Criar botões de ação rápida
+            mobileQuickActions.className = 'mobile-quick-actions';
+            mobileQuickActions.innerHTML = `
+                <button class="mobile-quick-btn bookmark-btn" id="quick-bookmark-btn" title="Marcar página">
+                    <i class="far fa-bookmark"></i>
+                </button>
+                <button class="mobile-quick-btn" id="quick-tools-btn" title="Ferramentas">
+                    <i class="fas fa-tools"></i>
+                </button>
+            `;
+            
+            document.querySelector('.main-content').appendChild(mobileQuickActions);
+            
+            // Adicionar event listeners
+            document.getElementById('bottom-prev-btn').addEventListener('click', () => goToPage(ebookConfig.currentPage - 1));
+            document.getElementById('bottom-next-btn').addEventListener('click', () => goToPage(ebookConfig.currentPage + 1));
+            document.getElementById('quick-bookmark-btn').addEventListener('click', toggleBookmark);
+            document.getElementById('quick-tools-btn').addEventListener('click', toggleMobileTools);
+        }
+
+        // Alternar ferramentas mobile
+        function toggleMobileTools() {
+            if (readerTools.classList.contains('mobile-open')) {
+                readerTools.classList.remove('mobile-open');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                readerTools.classList.add('mobile-open');
+                mobileMenuToggle.classList.add('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                // Scroll para o topo das ferramentas
+                readerTools.scrollTop = 0;
+            }
+        }
+
+        // Mostrar notificação mobile
+        function showMobileNotification(message) {
+            // Remover notificação anterior se existir
+            const existingNotification = document.querySelector('.mobile-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Criar elemento de notificação
+            const notification = document.createElement('div');
+            notification.className = 'mobile-notification';
+            notification.textContent = message;
+            
+            // Adicionar ao corpo
+            document.body.appendChild(notification);
+            
+            // Remover após 2 segundos
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translate(-50%, -10px)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 2000);
+        }
+
+        // Atualizar navegação inferior
+        function updateMobileBottomNav() {
+            if (!ebookConfig.isMobile) return;
+            
+            const bottomCurrentPage = document.getElementById('bottom-current-page');
+            const bottomTotalPages = document.getElementById('bottom-total-pages');
+            
+            if (bottomCurrentPage) bottomCurrentPage.textContent = ebookConfig.currentPage;
+            if (bottomTotalPages) bottomTotalPages.textContent = ebookConfig.totalPages;
+        }
+
+        // Atualizar botão de bookmark rápido
+        function updateQuickBookmarkButton() {
+            if (!ebookConfig.isMobile) return;
+            
+            const quickBookmarkBtn = document.getElementById('quick-bookmark-btn');
+            if (!quickBookmarkBtn) return;
+            
+            const isBookmarked = ebookConfig.bookmarks.includes(ebookConfig.currentPage);
+            
+            if (isBookmarked) {
+                quickBookmarkBtn.innerHTML = '<i class="fas fa-bookmark"></i>';
+                quickBookmarkBtn.classList.add('active');
+            } else {
+                quickBookmarkBtn.innerHTML = '<i class="far fa-bookmark"></i>';
+                quickBookmarkBtn.classList.remove('active');
+            }
+        }
+
+        // Swipe para navegação (mobile)
+        function setupSwipeNavigation() {
+            if (!ebookConfig.isMobile) return;
+            
+            const bookContent = document.getElementById('book-content');
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            bookContent.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            bookContent.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const swipeDistance = touchEndX - touchStartX;
+                
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0) {
+                        // Swipe para a direita = página anterior
+                        goToPage(ebookConfig.currentPage - 1);
+                    } else {
+                        // Swipe para a esquerda = próxima página
+                        goToPage(ebookConfig.currentPage + 1);
+                    }
+                }
+            }
+        }
+
+        // Inicialização mobile
+        function initMobile() {
+            if (!ebookConfig.isMobile) return;
+            
+            // Criar elementos mobile
+            createMobileBottomNav();
+            setupSwipeNavigation();
+            
+            // Configurar botão de menu mobile
+            if (mobileMenuToggle) {
+                mobileMenuToggle.style.display = 'block';
+                mobileMenuToggle.addEventListener('click', toggleMobileTools);
+            }
+            
+            // Esconder botão de colapso de ferramentas em mobile
+            const toolsCollapseBtn = document.getElementById('tools-collapse-btn');
+            if (toolsCollapseBtn) {
+                toolsCollapseBtn.style.display = 'none';
+            }
+            
+            // Atualizar botão de bookmark rápido
+            updateQuickBookmarkButton();
+            
+            // Atualizar navegação inferior
+            updateMobileBottomNav();
+        }
+
+        // ===========================================
+        // INICIALIZAÇÃO
+        // ===========================================
+
+        // Inicializar
+        function init() {
+            // Definir total de páginas
+            totalPagesSpan.textContent = ebookConfig.totalPages;
+            pageInput.max = ebookConfig.totalPages;
+            
+            // Carregar configurações
+            loadSettings();
+            
+            // Atualizar progresso inicial
+            const progress = (ebookConfig.currentPage / ebookConfig.totalPages) * 100;
+            readingProgress.style.width = `${progress}%`;
+            progressPercentage.textContent = `${Math.round(progress)}%`;
+            
+            // Atualizar botão de bookmark
+            updateBookmarkButton();
+            
+            // Inicialização mobile
+            initMobile();
+            
+            // Adicionar animação CSS para notificação
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInOut {
+                    0% { opacity: 0; transform: translateY(-20px); }
+                    15% { opacity: 1; transform: translateY(0); }
+                    85% { opacity: 1; transform: translateY(0); }
+                    100% { opacity: 0; transform: translateY(-20px); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
         // Event Listeners
         prevPageBtn.addEventListener('click', () => goToPage(ebookConfig.currentPage - 1));
         nextPageBtn.addEventListener('click', () => goToPage(ebookConfig.currentPage + 1));
@@ -2369,48 +2919,19 @@
         // Bookmark
         bookmarkPageBtn.addEventListener('click', toggleBookmark);
 
-        // Menu mobile
-        mobileMenuToggle.addEventListener('click', () => {
-            readerTools.classList.toggle('mobile-open');
-            mobileMenuToggle.querySelector('i').className = 
-                readerTools.classList.contains('mobile-open') ? 'fas fa-times' : 'fas fa-bars';
-        });
-
         // Colapso da barra de ferramentas
         toolsCollapseBtn.addEventListener('click', toggleToolsCollapse);
 
-        // Inicializar
-        function init() {
-            // Definir total de páginas
-            totalPagesSpan.textContent = ebookConfig.totalPages;
-            pageInput.max = ebookConfig.totalPages;
-            
-            // Carregar configurações
-            loadSettings();
-            
-            // Atualizar progresso inicial
-            const progress = (ebookConfig.currentPage / ebookConfig.totalPages) * 100;
-            readingProgress.style.width = `${progress}%`;
-            progressPercentage.textContent = `${Math.round(progress)}%`;
-            
-            // Atualizar botão de bookmark
-            updateBookmarkButton();
-            
-            // Adicionar animação CSS para notificação
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes fadeInOut {
-                    0% { opacity: 0; transform: translateY(-20px); }
-                    15% { opacity: 1; transform: translateY(0); }
-                    85% { opacity: 1; transform: translateY(0); }
-                    100% { opacity: 0; transform: translateY(-20px); }
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
         // Inicializar quando o DOM estiver carregado
         document.addEventListener('DOMContentLoaded', init);
+
+        // Atualizar estado mobile no resize
+        window.addEventListener('resize', () => {
+            ebookConfig.isMobile = window.innerWidth <= 768;
+            if (ebookConfig.isMobile && !document.getElementById('bottom-prev-btn')) {
+                initMobile();
+            }
+        });
 
         // Teclas de atalho
         document.addEventListener('keydown', (e) => {
