@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antologia Poética | Livro de Poesias Vintage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Cores para tema claro (páginas amareladas) - Ajustadas para melhor contraste */
+            --primary-light: #7A4A2A;
+            --primary-light-hover: #5C361A;
+            --secondary-light: #8B5D3B;
+            --accent-light: #8B4513;
+            --bg-light: rgba(255, 250, 240, 0.85);
+            --bg-paper-light: rgba(255, 253, 248, 0.9);
+            --text-light: #2A1C10;
+            --text-secondary-light: #4A3725;
+            --border-light: rgba(139, 90, 43, 0.4);
+            --shadow-light: rgba(122, 74, 42, 0.15);
+            --success-light: #8B7355;
+            --warning-light: #B5651D;
+            
+            /* Cores para tema escuro (noite de leitura) - Ajustadas */
+            --primary-dark: #E4C9A0;
+            --primary-dark-hover: #F0D9B5;
+            --secondary-dark: #C9A87A;
+            --accent-dark: #E6B17E;
+            --bg-dark: rgba(26, 16, 8, 0.85);
+            --bg-paper-dark: rgba(45, 35, 25, 0.9);
+            --text-dark: #F5EEDE;
+            --text-secondary-dark: #D4C4A5;
+            --border-dark: rgba(107, 86, 64, 0.4);
+            --shadow-dark: rgba(0, 0, 0, 0.3);
+            --success-dark: #C19A6B;
+            --warning-dark: #E6B17E;
+            
+            /* Variáveis ativas (inicialmente tema claro) */
+            --primary: var(--primary-light);
+            --primary-hover: var(--primary-light-hover);
+            --secondary: var(--secondary-light);
+            --accent: var(--accent-light);
+            --bg: var(--bg-light);
+            --bg-paper: var(--bg-paper-light);
+            --text: var(--text-light);
+            --text-secondary: var(--text-secondary-light);
+            --border: var(--border-light);
+            --shadow: var(--shadow-light);
+            --success: var(--success-light);
+            --warning: var(--warning-light);
+            
+            /* Tipografia vintage */
+            --font-title: 'Cinzel', serif;
+            --font-heading: 'EB Garamond', serif;
+            --font-body: 'Crimson Text', serif;
+            
+            /* Bordas e sombras */
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --shadow-sm: 0 2px 8px var(--shadow);
+            --shadow-md: 0 4px 16px var(--shadow);
+            --shadow-lg: 0 8px 32px var(--shadow);
+            --transition: all 0.3s ease;
+            
+            /* Barra de ferramentas */
+            --tools-width: 280px;
+            --tools-collapsed-width: 60px;
+        }
+
+        .dark-theme {
+            --primary: var(--primary-dark);
+            --primary-hover: var(--primary-dark-hover);
+            --secondary: var(--secondary-dark);
+            --accent: var(--accent-dark);
+            --bg: var(--bg-dark);
+            --bg-paper: var(--bg-paper-dark);
+            --text: var(--text-dark);
+            --text-secondary: var(--text-secondary-dark);
+            --border: var(--border-dark);
+            --shadow: var(--shadow-dark);
+            --success: var(--success-dark);
+            --warning: var(--warning-dark);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #F8F3E8;
+            color: var(--text);
+            line-height: 1.6;
+            transition: var(--transition);
+            min-height: 100vh;
+            position: relative;
+            background-image: url('https://i.ibb.co/5g6vWpq4/Gemini-Generated-Image-k194wik194wik194-2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Overlay mais sutil para deixar o BG mais visível */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.2), 
+                rgba(0, 0, 0, 0.3)
+            );
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+            padding-top: 20px;
+        }
+
+        /* Header com estilo vintage e transparência */
+        header {
+            padding: 20px 0;
+            position: relative;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            width: 100%;
+            background-color: rgba(250, 245, 235, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .dark-theme header {
+            background-color: rgba(40, 30, 20, 0.7);
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            filter: sepia(0.5);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-theme .logo-title {
+            color: var(--primary-dark);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-subtitle {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 10px;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle:hover {
+            background-color: rgba(139, 90, 43, 0.1);
+        }
+
+        /* Barra de Ferramentas do Leitor com transparência */
+        .reader-tools {
+            width: var(--tools-width);
+            flex-shrink: 0;
+            background-color: rgba(250, 245, 235, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 25px;
+            border: 1px solid var(--border);
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+            transition: var(--transition);
+        }
+
+        .dark-theme .reader-tools {
+            background-color: rgba(45, 35, 25, 0.8);
+            border: 1px solid var(--border-dark);
+        }
+
+        .tools-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tools-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tools-title i {
+            color: var(--accent);
+        }
+
+        .tools-collapse-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            width: 32px;
+            height: 32px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tools-collapse-btn:hover {
+            background-color: rgba(139, 90, 43, 0.1);
+            color: var(--primary);
+        }
+
+        .tools-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            width: 20px;
+        }
+
+        .navigation-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .page-navigation {
+            display: flex;
+            gap: 8px;
+        }
+
+        .page-navigation .btn {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .page-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 12px 15px;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border);
+        }
+
+        .dark-theme .page-input-group {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .page-input {
+            width: 60px;
+            padding: 8px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border);
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--text);
+            text-align: center;
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+
+        .dark-theme .page-input {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .page-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(139, 90, 43, 0.2);
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--bg-paper);
+            border: none;
+            padding: 12px 18px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-small {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        .theme-control {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 12px 15px;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border);
+        }
+
+        .dark-theme .theme-control {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 54px;
+            height: 28px;
+        }
+
+        .theme-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--border);
+            border-radius: 34px;
+            transition: var(--transition);
+            border: 1px solid var(--primary);
+        }
+
+        .theme-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--bg-paper);
+            border-radius: 50%;
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        input:checked + .theme-slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .theme-slider:before {
+            transform: translateX(26px);
+        }
+
+        .theme-labels {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-label i {
+            font-size: 1.1rem;
+        }
+
+        .font-size-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .font-size-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: var(--text-secondary);
+            border: 2px solid var(--border);
+            transition: var(--transition);
+            font-family: var(--font-heading);
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .dark-theme .font-size-btn {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .font-size-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .font-size-btn.active {
+            background-color: var(--primary);
+            color: var(--bg-paper);
+            border-color: var(--primary);
+        }
+
+        .bookmarks-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .bookmark-tag {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: var(--text);
+            padding: 10px 15px;
+            border-radius: var(--border-radius-md);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            font-family: var(--font-body);
+        }
+
+        .dark-theme .bookmark-tag {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .bookmark-tag:hover {
+            background-color: rgba(139, 90, 43, 0.2);
+            transform: translateX(5px);
+        }
+
+        .bookmark-tag.active {
+            background-color: var(--primary);
+            color: var(--bg-paper);
+            border-color: var(--primary);
+        }
+
+        .bookmark-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .bookmark-action-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+        }
+
+        .bookmark-action-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 12px;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .dark-theme .stat {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 15px 0;
+            border: 1px solid var(--border);
+        }
+
+        .dark-theme .progress-bar {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            width: 20%;
+            transition: width 0.8s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: progressShimmer 3s infinite;
+        }
+
+        @keyframes progressShimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Área principal do livro */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .book-content-container {
+            position: relative;
+            background-color: var(--bg-paper);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            min-height: 70vh;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .book-content-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to bottom, transparent 95%, rgba(139, 90, 43, 0.05) 100%),
+                radial-gradient(circle at 10% 20%, rgba(139, 90, 43, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 90, 43, 0.03) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .book-content {
+            padding: 50px 60px;
+            min-height: 70vh;
+            overflow-y: auto;
+            font-family: var(--font-body);
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .book-page.active {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Estilos específicos para a capa */
+        .cover-page {
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .cover-title {
+            font-family: var(--font-title);
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .cover-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .cover-subtitle {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+
+        .cover-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 40px 0;
+        }
+
+        .cover-edition {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 60px;
+            font-style: italic;
+        }
+
+        .cover-year {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-top: 10px;
+        }
+
+        /* Estilos para o sumário */
+        .toc-page h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .toc-list {
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .toc-item {
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .toc-item:hover {
+            background-color: rgba(139, 90, 43, 0.05);
+            padding-left: 15px;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .toc-item-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--text);
+            flex: 1;
+        }
+
+        .toc-item-page {
+            font-family: var(--font-body);
+            color: var(--primary);
+            font-weight: 600;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .toc-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border);
+        }
+
+        .toc-section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Estilos para biografia */
+        .bio-page h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .bio-author {
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .bio-author:last-child {
+            border-bottom: none;
+        }
+
+        .bio-author-name {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bio-author-name i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .bio-author-period {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-left: 35px;
+        }
+
+        .bio-author-description {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .bio-author-works {
+            margin-top: 25px;
+            padding-left: 20px;
+        }
+
+        .bio-author-works h4 {
+            font-family: var(--font-heading);
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .bio-author-works ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .bio-author-works li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .bio-author-works li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Estilos para as páginas de poesias (mantidos) */
+        .book-page h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 2rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .book-page h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .poem-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin: 30px 0 15px;
+            text-align: center;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .poem-title::before, .poem-title::after {
+            content: '~';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--border);
+            font-size: 1.2rem;
+        }
+
+        .poem-title::before {
+            left: 20%;
+        }
+
+        .poem-title::after {
+            right: 20%;
+        }
+
+        .poem {
+            text-align: center;
+            margin: 25px 0 40px;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .poem p {
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+        }
+
+        .poem-author {
+            text-align: right;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-top: 20px;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .poem-author::before {
+            content: '—';
+            margin-right: 5px;
+        }
+
+        .book-page blockquote {
+            border-left: 3px solid var(--primary);
+            padding: 20px 30px;
+            margin: 30px 0;
+            font-style: italic;
+            background-color: rgba(139, 90, 43, 0.05);
+            border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-page blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: serif;
+        }
+
+        .book-page .chapter-start::first-letter {
+            float: left;
+            font-size: 4rem;
+            line-height: 1;
+            margin: 0 10px 0 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-family: var(--font-heading);
+        }
+
+        .page-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 40px 40px 0;
+            border-color: transparent var(--primary) transparent transparent;
+            opacity: 0.2;
+            z-index: 2;
+        }
+
+        /* Footer com transparência */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            position: relative;
+            background-color: rgba(250, 245, 235, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .dark-theme footer {
+            background-color: rgba(40, 30, 20, 0.7);
+            border-top: 1px solid var(--border-dark);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 10px;
+        }
+
+        .footer-icon {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-icon:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .dark-theme footer p {
+            color: var(--text-secondary-dark);
+        }
+
+        .footer-note {
+            font-style: italic;
+            margin-top: 10px;
+            opacity: 0.9;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .dark-theme .footer-note {
+            color: var(--accent-dark);
+        }
+
+        /* Classes de tamanho de fonte */
+        .small-font {
+            font-size: 0.95em;
+        }
+
+        .medium-font {
+            font-size: 1.1em;
+        }
+
+        .large-font {
+            font-size: 1.25em;
+        }
+
+        .x-large-font {
+            font-size: 1.4em;
+        }
+
+        /* Estado colapsado */
+        .tools-collapsed {
+            width: var(--tools-collapsed-width);
+            padding: 20px 15px;
+        }
+
+        .tools-collapsed .tools-header {
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tools-collapsed .tools-title span,
+        .tools-collapsed .section-title span,
+        .tools-collapsed .theme-labels,
+        .tools-collapsed .page-input-group span,
+        .tools-collapsed .btn span,
+        .tools-collapsed .stat-label,
+        .tools-collapsed .bookmark-tag span:first-child {
+            display: none;
+        }
+
+        .tools-collapsed .tools-title,
+        .tools-collapsed .section-title {
+            justify-content: center;
+        }
+
+        .tools-collapsed .bookmark-tag {
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .tools-collapsed .bookmark-actions {
+            display: none;
+        }
+
+        .tools-collapsed .font-size-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 0.8rem;
+        }
+
+        .tools-collapsed .theme-control {
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .tools-collapsed .page-input-group {
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .tools-collapsed .page-input {
+            width: 100%;
+        }
+
+        .tools-collapsed .page-navigation {
+            flex-direction: column;
+        }
+
+        .tools-collapsed .progress-stats {
+            grid-template-columns: 1fr;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .reader-tools {
+                width: 250px;
+            }
+            
+            .container {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .reader-tools {
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+            }
+            
+            .book-content {
+                padding: 40px;
+            }
+            
+            .cover-title {
+                font-size: 3rem;
+                padding-top: 40px;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .poem-title::before {
+                left: 10%;
+            }
+            
+            .poem-title::after {
+                right: 10%;
+            }
+            
+            .tools-collapse-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .reader-tools {
+                display: none;
+                padding: 20px;
+            }
+            
+            .reader-tools.mobile-open {
+                display: block;
+            }
+            
+            .book-content {
+                padding: 30px;
+            }
+            
+            .cover-title {
+                font-size: 2.5rem;
+                padding-top: 30px;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .book-page h2 {
+                font-size: 1.7rem;
+            }
+            
+            .poem-title::before, .poem-title::after {
+                display: none;
+            }
+            
+            .bio-author-name {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .bio-author-period {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .book-content {
+                padding: 20px;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .font-size-btn {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .progress-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .cover-title {
+                font-size: 2rem;
+                padding-top: 20px;
+            }
+            
+            .cover-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .toc-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .toc-item-page {
+                text-align: left;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-book-sparkles"></i>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title">ANTOLOGIA POÉTICA</div>
+                        <div class="logo-subtitle">Coleção de Poemas Clássicos</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Barra de Ferramentas do Leitor -->
+        <div class="reader-tools" id="reader-tools">
+            <div class="tools-header">
+                <div class="tools-title">
+                    <i class="fas fa-tools"></i>
+                    <span>Ferramentas</span>
+                </div>
+                <button class="tools-collapse-btn" id="tools-collapse-btn" title="Recolher/Expandir">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <!-- Navegação -->
+            <div class="tools-section">
+                <div class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    <span>Navegação</span>
+                </div>
+                <div class="navigation-controls">
+                    <div class="page-navigation">
+                        <button class="btn btn-small" id="prev-page">
+                            <i class="fas fa-chevron-left"></i>
+                            <span>Anterior</span>
+                        </button>
+                        <button class="btn btn-small" id="next-page">
+                            <span>Próxima</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="page-input-group">
+                        <span>Página</span>
+                        <input type="number" id="page-input" min="1" max="8" value="1" class="page-input">
+                        <span>de <span id="total-pages">8</span></span>
+                    </div>
+                    
+                    <button class="btn" id="go-to-page">
+                        <i class="fas fa-arrow-right-to-bracket"></i>
+                        <span>Ir para Página</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Aparência -->
+            <div class="tools-section">
+                <div class="section-title">
+                    <i class="fas fa-palette"></i>
+                    <span>Aparência</span>
+                </div>
+                
+                <div class="font-size-controls">
+                    <button class="font-size-btn small-font" data-size="small" title="Pequeno">A</button>
+                    <button class="font-size-btn medium-font active" data-size="medium" title="Médio">A</button>
+                    <button class="font-size-btn large-font" data-size="large" title="Grande">A</button>
+                    <button class="font-size-btn x-large-font" data-size="x-large" title="Extra Grande">A</button>
+                </div>
+                
+                <div class="theme-control">
+                    <div class="theme-labels">
+                        <div class="theme-label">
+                            <i class="fas fa-sun"></i>
+                            <span>Claro</span>
+                        </div>
+                        <div class="theme-label">
+                            <i class="fas fa-moon"></i>
+                            <span>Escuro</span>
+                        </div>
+                    </div>
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="theme-switch">
+                        <label class="theme-slider" for="theme-switch"></label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Marcadores -->
+            <div class="tools-section">
+                <div class="section-title">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Poesias Marcadas</span>
+                    <span class="bookmark-count" id="bookmark-count">(2)</span>
+                </div>
+                <div class="bookmarks-container" id="bookmarks-container">
+                    <!-- Bookmarks serão adicionados aqui via JavaScript -->
+                </div>
+                <button class="btn btn-small" id="bookmark-page" style="margin-top: 10px; width: 100%;">
+                    <i class="far fa-bookmark"></i>
+                    <span>Marcar Poesia Atual</span>
+                </button>
+            </div>
+            
+            <!-- Progresso -->
+            <div class="tools-section">
+                <div class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progresso</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="reading-progress"></div>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="current-page">1</div>
+                        <div class="stat-label">Página Atual</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="progress-percentage">12.5%</div>
+                        <div class="stat-label">Completo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Conteúdo Principal -->
+        <div class="main-content">
+            <div class="book-content-container">
+                <div class="page-corner"></div>
+                
+                <div class="book-content" id="book-content">
+                    <!-- Página 1: Capa -->
+                    <div class="book-page cover-page active" id="page-1">
+                        <div class="cover-title">Antologia Poética</div>
+                        <div class="cover-subtitle">Uma Jornada pelas Melhores Poesias da Língua Portuguesa</div>
+                        
+                        <div class="cover-divider"></div>
+                        
+                        <div style="text-align: center; margin: 40px 0;">
+                            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px; display: block;"></i>
+                            <p style="font-size: 1.3rem; font-style: italic; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                                "A poesia é a música da alma, e quando a alma está afinada, 
+                                o coração canta a melodia mais doce."
+                            </p>
+                        </div>
+                        
+                        <div class="cover-divider"></div>
+                        
+                        <div style="margin-top: 60px;">
+                            <h3 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 20px;">
+                                Conteúdo da Coleção
+                            </h3>
+                            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.6;">
+                                Esta antologia reúne as mais belas poesias dos séculos XIX e XX, 
+                                representando os principais movimentos literários da língua portuguesa.
+                            </p>
+                        </div>
+                        
+                        <div class="cover-edition">
+                            Edição Comemorativa<br>
+                            <span class="cover-year">2023</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Página 2: Sumário -->
+                    <div class="book-page toc-page" id="page-2">
+                        <h2>Sumário</h2>
+                        
+                        <div class="toc-section">
+                            <div class="toc-section-title">Introdução</div>
+                            <ul class="toc-list">
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Capa e Apresentação</span>
+                                    <span class="toc-item-page">1</span>
+                                </li>
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Sumário</span>
+                                    <span class="toc-item-page">2</span>
+                                </li>
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Biografia dos Autores</span>
+                                    <span class="toc-item-page">3</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="toc-section">
+                            <div class="toc-section-title">Poesias do Século XIX</div>
+                            <ul class="toc-list">
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Soneto de Fidelidade - Vinícius de Moraes</span>
+                                    <span class="toc-item-page">4</span>
+                                </li>
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Ismália - Alphonsus de Guimaraens</span>
+                                    <span class="toc-item-page">4</span>
+                                </li>
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Canção do Exílio - Gonçalves Dias</span>
+                                    <span class="toc-item-page">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="toc-section">
+                            <div class="toc-section-title">Poesias Modernistas</div>
+                            <ul class="toc-list">
+                                <li class="toc-item">
+                                    <span class="toc-item-title">No Meio do Caminho - Carlos Drummond de Andrade</span>
+                                    <span class="toc-item-page">6</span>
+                                </li>
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Poema de Sete Faces - Carlos Drummond de Andrade</span>
+                                    <span class="toc-item-page">6</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="toc-section">
+                            <div class="toc-section-title">Poesias Contemporâneas</div>
+                            <ul class="toc-list">
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Tecendo a Manhã - João Cabral de Melo Neto</span>
+                                    <span class="toc-item-page">7</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="toc-section">
+                            <div class="toc-section-title">Anexos</div>
+                            <ul class="toc-list">
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Glossário de Termos Poéticos</span>
+                                    <span class="toc-item-page">8</span>
+                                </li>
+                                <li class="toc-item">
+                                    <span class="toc-item-title">Linha do Tempo da Poesia Brasileira</span>
+                                    <span class="toc-item-page">8</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Página 3: Biografia -->
+                    <div class="book-page bio-page" id="page-3">
+                        <h2>Biografia dos Autores</h2>
+                        
+                        <div class="bio-author">
+                            <div class="bio-author-name">
+                                <i class="fas fa-user-pen"></i>
+                                <span>Vinícius de Moraes</span>
+                            </div>
+                            <div class="bio-author-period">1913-1980 | Rio de Janeiro, Brasil</div>
+                            <div class="bio-author-description">
+                                Marcus Vinícius da Cruz de Melo Moraes, conhecido como Vinícius de Moraes, 
+                                foi um poeta, dramaturgo, jornalista, diplomata e compositor brasileiro. 
+                                Notável como poeta e compositor, escreveu sonetos que estão entre os mais 
+                                significativos da literatura brasileira, além de ter sido um dos pioneiros 
+                                da bossa nova. Sua obra transita entre o lirismo amoroso e a reflexão 
+                                existencial, sempre com uma linguagem acessível e profunda.
+                            </div>
+                            <div class="bio-author-works">
+                                <h4>Principais Obras:</h4>
+                                <ul>
+                                    <li>Soneto de Fidelidade (1960)</li>
+                                    <li>Garota de Ipanema (1962) - em parceria com Tom Jobim</li>
+                                    <li>O Caminho para a Distância (1933)</li>
+                                    <li>Orfeu da Conceição (1956)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bio-author">
+                            <div class="bio-author-name">
+                                <i class="fas fa-user-pen"></i>
+                                <span>Alphonsus de Guimaraens</span>
+                            </div>
+                            <div class="bio-author-period">1870-1921 | Ouro Preto, Brasil</div>
+                            <div class="bio-author-description">
+                                Afonso Henrique da Costa Guimarães, conhecido como Alphonsus de Guimaraens, 
+                                foi um poeta brasileiro, considerado um dos principais representantes do 
+                                Simbolismo no Brasil. Sua obra é marcada por forte misticismo, espiritualidade 
+                                e uma linguagem musical e sugestiva. Os temas predominantes são a morte, 
+                                o amor espiritualizado e a religiosidade, sempre com uma sensibilidade 
+                                extremamente lírica e melancólica.
+                            </div>
+                            <div class="bio-author-works">
+                                <h4>Principais Obras:</h4>
+                                <ul>
+                                    <li>Ismália (1899)</li>
+                                    <li>Dona Mística (1899)</li>
+                                    <li>Kiriale (1902)</li>
+                                    <li>Pastoral aos Crentes do Amor e da Morte (1923)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bio-author">
+                            <div class="bio-author-name">
+                                <i class="fas fa-user-pen"></i>
+                                <span>Gonçalves Dias</span>
+                            </div>
+                            <div class="bio-author-period">1823-1864 | Caxias, Brasil</div>
+                            <div class="bio-author-description">
+                                Antônio Gonçalves Dias foi um poeta, teatrólogo, folclorista, etnógrafo 
+                                e advogado brasileiro. É considerado um dos maiores poetas do Romantismo 
+                                brasileiro e um grande nacionalista, sendo o autor da famosa "Canção do 
+                                Exílio". Sua obra valoriza a natureza brasileira, o indígena e os temas 
+                                nacionalistas, sendo um dos principais expoentes da primeira geração 
+                                romântica no Brasil.
+                            </div>
+                            <div class="bio-author-works">
+                                <h4>Principais Obras:</h4>
+                                <ul>
+                                    <li>Canção do Exílio (1843)</li>
+                                    <li>I-Juca-Pirama (1851)</li>
+                                    <li>Os Timbiras (1857)</li>
+                                    <li>Leonor de Mendonça (1847)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bio-author">
+                            <div class="bio-author-name">
+                                <i class="fas fa-user-pen"></i>
+                                <span>Carlos Drummond de Andrade</span>
+                            </div>
+                            <div class="bio-author-period">1902-1987 | Itabira, Brasil</div>
+                            <div class="bio-author-description">
+                                Carlos Drummond de Andrade foi um poeta, contista e cronista brasileiro, 
+                                considerado por muitos o maior poeta brasileiro do século XX. Sua obra 
+                                caracteriza-se pela precisão vocabular, pelo humor ácido, pelo ceticismo 
+                                e pela reflexão existencial. Pertenceu à segunda geração do Modernismo 
+                                brasileiro e sua poesia evoluiu do individualismo para questões sociais 
+                                e políticas, sempre mantendo uma profunda reflexão sobre a condição humana.
+                            </div>
+                            <div class="bio-author-works">
+                                <h4>Principais Obras:</h4>
+                                <ul>
+                                    <li>Alguma Poesia (1930)</li>
+                                    <li>Sentimento do Mundo (1940)</li>
+                                    <li>A Rosa do Povo (1945)</li>
+                                    <li>Claro Enigma (1951)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bio-author">
+                            <div class="bio-author-name">
+                                <i class="fas fa-user-pen"></i>
+                                <span>João Cabral de Melo Neto</span>
+                            </div>
+                            <div class="bio-author-period">1920-1999 | Recife, Brasil</div>
+                            <div class="bio-author-description">
+                                João Cabral de Melo Neto foi um poeta e diplomata brasileiro, conhecido 
+                                por sua poesia objetiva, seca e rigorosa, que rejeitava o lirismo 
+                                excessivo e a sentimentalidade. Sua obra é marcada pelo uso de imagens 
+                                concretas, pela precisão vocabular e pela abordagem de temas sociais, 
+                                especialmente relacionados ao Nordeste brasileiro. Foi um dos principais 
+                                representantes da Geração de 45 e recebeu o Prêmio Camões em 1990.
+                            </div>
+                            <div class="bio-author-works">
+                                <h4>Principais Obras:</h4>
+                                <ul>
+                                    <li>Morte e Vida Severina (1955)</li>
+                                    <li>Educação pela Pedra (1966)</li>
+                                    <li>Auto do Frade (1984)</li>
+                                    <li>Museu de Tudo (1975)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Página 4: Poesias do Século XIX (antiga página 1) -->
+                    <div class="book-page" id="page-4">
+                        <h2>Poesias do Século XIX</h2>
+                        
+                        <div class="poem">
+                            <div class="poem-title">Soneto de Fidelidade</div>
+                            <p>De tudo, ao meu amor serei atento</p>
+                            <p>Antes, e com tal zelo, e sempre, e tanto</p>
+                            <p>Que mesmo em face do maior encanto</p>
+                            <p>Dele se encante mais meu pensamento.</p>
+                            <br>
+                            <p>Quero vivê-lo em cada vão momento</p>
+                            <p>E em seu louvor hei de espalhar meu canto</p>
+                            <p>E rir meu riso e derramar meu pranto</p>
+                            <p>Ao seu pesar ou seu contentamento.</p>
+                            <br>
+                            <p>E assim, quando mais tarde me procure</p>
+                            <p>Quem sabe a morte, angústia de quem vive</p>
+                            <p>Quem sabe a solidão, fim de quem ama</p>
+                            <br>
+                            <p>Eu possa me dizer do amor (que tive):</p>
+                            <p>Que não seja imortal, posto que é chama</p>
+                            <p>Mas que seja infinito enquanto dure.</p>
+                            <div class="poem-author">Vinícius de Moraes</div>
+                        </div>
+                        
+                        <div class="poem">
+                            <div class="poem-title">Ismália</div>
+                            <p>Quando Ismália enlouqueceu,</p>
+                            <p>Pôs-se na torre a sonhar...</p>
+                            <p>Viu uma lua no céu,</p>
+                            <p>Viu outra lua no mar.</p>
+                            <br>
+                            <p>No sonho em que se perdeu,</p>
+                            <p>Banhou-se toda em luar...</p>
+                            <p>Queria subir ao céu,</p>
+                            <p>Queria descer ao mar...</p>
+                            <br>
+                            <p>E, no desvario seu,</p>
+                            <p>Na torre pôs-se a cantar...</p>
+                            <p>Estava perto do céu,</p>
+                            <p>Estava longe do mar...</p>
+                            <br>
+                            <p>E como um anjo pendeu</p>
+                            <p>As asas para voar...</p>
+                            <p>Queria a lua do céu,</p>
+                            <p>Queria a lua do mar...</p>
+                            <br>
+                            <p>As asas que Deus lhe deu</p>
+                            <p>Ruflaram de par em par...</p>
+                            <p>Sua alma subiu ao céu,</p>
+                            <p>Seu corpo desceu ao mar...</p>
+                            <div class="poem-author">Alphonsus de Guimaraens</div>
+                        </div>
+                        
+                        <blockquote>
+                            "A poesia é a expressão mais sublime da alma humana, 
+                            capaz de tocar o coração e iluminar a mente com a luz 
+                            das palavras."
+                        </blockquote>
+                    </div>
+                    
+                    <!-- Página 5: Romantismo Brasileiro (antiga página 3) -->
+                    <div class="book-page" id="page-5">
+                        <h2>Romantismo Brasileiro</h2>
+                        
+                        <div class="poem">
+                            <div class="poem-title">Canção do Exílio</div>
+                            <p>Minha terra tem palmeiras,</p>
+                            <p>Onde canta o Sabiá;</p>
+                            <p>As aves, que aqui gorjeiam,</p>
+                            <p>Não gorjeiam como lá.</p>
+                            <br>
+                            <p>Nosso céu tem mais estrelas,</p>
+                            <p>Nossas várzeas têm mais flores,</p>
+                            <p>Nossos bosques têm mais vida,</p>
+                            <p>Nossa vida mais amores.</p>
+                            <br>
+                            <p>Em cismar, sozinho, à noite,</p>
+                            <p>Mais prazer encontro eu lá;</p>
+                            <p>Minha terra tem palmeiras,</p>
+                            <p>Onde canta o Sabiá.</p>
+                            <br>
+                            <p>Minha terra tem primores,</p>
+                            <p>Que tais não encontro eu cá;</p>
+                            <p>Em cismar — sozinho, à noite —</p>
+                            <p>Mais prazer encontro eu lá;</p>
+                            <p>Minha terra tem palmeiras,</p>
+                            <p>Onde canta o Sabiá.</p>
+                            <br>
+                            <p>Não permita Deus que eu morra,</p>
+                            <p>Sem que eu volte para lá;</p>
+                            <p>Sem que desfrute os primores</p>
+                            <p>Que não encontro por cá;</p>
+                            <p>Sem qu'inda aviste as palmeiras,</p>
+                            <p>Onde canta o Sabiá.</p>
+                            <div class="poem-author">Gonçalves Dias</div>
+                        </div>
+                        
+                        <blockquote>
+                            "O poeta é um fingidor. Finge tão completamente 
+                            Que chega a fingir que é dor A dor que deveras sente."
+                        </blockquote>
+                    </div>
+                    
+                    <!-- Página 6: Poesias Modernistas (antiga página 4) -->
+                    <div class="book-page" id="page-6">
+                        <h2>Poesias Modernistas</h2>
+                        
+                        <div class="poem">
+                            <div class="poem-title">No Meio do Caminho</div>
+                            <p>No meio do caminho tinha uma pedra</p>
+                            <p>tinha uma pedra no meio do caminho</p>
+                            <p>tinha uma pedra</p>
+                            <p>no meio do caminho tinha uma pedra.</p>
+                            <br>
+                            <p>Nunca me esquecerei desse acontecimento</p>
+                            <p>na vida de minhas retinas tão fatigadas.</p>
+                            <p>Nunca me esquecerei que no meio do caminho</p>
+                            <p>tinha uma pedra</p>
+                            <p>tinha uma pedra no meio do caminho</p>
+                            <p>no meio do caminho tinha uma pedra.</p>
+                            <div class="poem-author">Carlos Drummond de Andrade</div>
+                        </div>
+                        
+                        <div class="poem">
+                            <div class="poem-title">Poema de Sete Faces</div>
+                            <p>Quando nasci, um anjo torto</p>
+                            <p>desses que vivem na sombra</p>
+                            <p>disse: Vai, Carlos! ser gauche na vida.</p>
+                            <br>
+                            <p>As casas espiam os homens</p>
+                            <p>que correm atrás de mulheres.</p>
+                            <p>A tarde talvez fosse azul,</p>
+                            <p>não houvesse tantos desejos.</p>
+                            <br>
+                            <p>O bonde passa cheio de pernas:</p>
+                            <p>pernas brancas pretas amarelas.</p>
+                            <p>Para que tanta perna, meu Deus, pergunta meu coração.</p>
+                            <p>Porém meus olhos</p>
+                            <p>não perguntam nada.</p>
+                            <div class="poem-author">Carlos Drummond de Andrade</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Página 7: Poesias Contemporâneas (antiga página 5) -->
+                    <div class="book-page" id="page-7">
+                        <h2>Poesias Contemporâneas</h2>
+                        
+                        <div class="poem">
+                            <div class="poem-title">Tecendo a Manhã</div>
+                            <p>Um galo sozinho não tece uma manhã:</p>
+                            <p>ele precisará sempre de outros galos.</p>
+                            <p>De um que apanhe esse grito que ele</p>
+                            <p>e o lance a outro; de um outro galo</p>
+                            <p>que apanhe o grito de um galo antes</p>
+                            <p>e o lance a outro; e de outros galos</p>
+                            <p>que com muitos outros galos se cruzem</p>
+                            <p>os fios de sol de seus gritos de galo,</p>
+                            <p>para que a manhã, desde uma teia tênue,</p>
+                            <p>se vá tecendo, entre todos os galos.</p>
+                            <br>
+                            <p>E se encorpando em tela, entre todos,</p>
+                            <p>se erguendo tenda, onde entrem todos,</p>
+                            <p>se entretendendo para todos, no toldo</p>
+                            <p>(a manhã) que plana livre de armação.</p>
+                            <p>A manhã, toldo de um tecido tão aéreo</p>
+                            <p>que, tecido, se eleva por si: luz balão.</p>
+                            <div class="poem-author">João Cabral de Melo Neto</div>
+                        </div>
+                        
+                        <blockquote>
+                            "A poesia não será levada a sério enquanto não formos capazes 
+                            de inseri-la nas cozinhas, nos quartos, nas ruas."
+                        </blockquote>
+                    </div>
+                    
+                    <!-- Página 8: Anexos -->
+                    <div class="book-page" id="page-8">
+                        <h2>Anexos</h2>
+                        
+                        <div style="margin: 40px 0;">
+                            <h3 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                                Glossário de Termos Poéticos
+                            </h3>
+                            
+                            <div style="margin-bottom: 30px;">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">Soneto</h4>
+                                <p style="text-align: justify; line-height: 1.6;">
+                                    Forma poética fixa composta por 14 versos, geralmente organizados em 
+                                    dois quartetos e dois tercetos. Originária da Itália, foi muito utilizada 
+                                    por poetas como Camões, Shakespeare e Vinícius de Moraes.
+                                </p>
+                            </div>
+                            
+                            <div style="margin-bottom: 30px;">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">Lirismo</h4>
+                                <p style="text-align: justify; line-height: 1.6;">
+                                    Característica da poesia que expressa sentimentos pessoais, emoções 
+                                    e estados de alma de forma subjetiva e musical. O lirismo está presente 
+                                    em quase todas as formas de expressão poética.
+                                </p>
+                            </div>
+                            
+                            <div style="margin-bottom: 30px;">
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">Modernismo</h4>
+                                <p style="text-align: justify; line-height: 1.6;">
+                                    Movimento artístico e literário que surgiu no início do século XX, 
+                                    caracterizado pela ruptura com as tradições, experimentação formal 
+                                    e busca por novas formas de expressão. No Brasil, teve como marco a 
+                                    Semana de Arte Moderna de 1922.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h4 style="color: var(--accent); margin-bottom: 10px;">Simbolismo</h4>
+                                <p style="text-align: justify; line-height: 1.6;">
+                                    Movimento literário do final do século XIX que privilegiava a sugestão, 
+                                    o mistério e a musicalidade em detrimento da descrição objetiva da 
+                                    realidade. Caracterizava-se pelo uso de símbolos, sinestesias e 
+                                    linguagem metafórica.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 50px;">
+                            <h3 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                                Linha do Tempo da Poesia Brasileira
+                            </h3>
+                            
+                            <div style="position: relative; padding-left: 30px; margin-top: 30px;">
+                                <div style="position: absolute; left: 0; top: 0; width: 2px; height: 100%; background-color: var(--border);"></div>
+                                
+                                <div style="margin-bottom: 40px; position: relative;">
+                                    <div style="position: absolute; left: -25px; top: 0; width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                                    <h4 style="color: var(--accent); margin-bottom: 5px;">1843 - Romantismo</h4>
+                                    <p style="color: var(--text-secondary);">Publicação de "Canção do Exílio" de Gonçalves Dias</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 40px; position: relative;">
+                                    <div style="position: absolute; left: -25px; top: 0; width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                                    <h4 style="color: var(--accent); margin-bottom: 5px;">1899 - Simbolismo</h4>
+                                    <p style="color: var(--text-secondary);">Publicação de "Ismália" de Alphonsus de Guimaraens</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 40px; position: relative;">
+                                    <div style="position: absolute; left: -25px; top: 0; width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                                    <h4 style="color: var(--accent); margin-bottom: 5px;">1922 - Modernismo</h4>
+                                    <p style="color: var(--text-secondary);">Semana de Arte Moderna em São Paulo</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 40px; position: relative;">
+                                    <div style="position: absolute; left: -25px; top: 0; width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                                    <h4 style="color: var(--accent); margin-bottom: 5px;">1930 - Modernismo (2ª Geração)</h4>
+                                    <p style="color: var(--text-secondary);">Publicação de "Alguma Poesia" de Carlos Drummond de Andrade</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 40px; position: relative;">
+                                    <div style="position: absolute; left: -25px; top: 0; width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary);"></div>
+                                    <h4 style="color: var(--accent); margin-bottom: 5px;">1960 - Geração de 45</h4>
+                                    <p style="color: var(--text-secondary);">Publicação de "Soneto de Fidelidade" de Vinícius de Moraes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-icons">
+                        <a href="#" class="footer-icon" title="Índice">
+                            <i class="fas fa-list-ol"></i>
+                        </a>
+                        <a href="#" class="footer-icon" title="Autores">
+                            <i class="fas fa-user-pen"></i>
+                        </a>
+                        <a href="#" class="footer-icon" title="Favoritos">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                        <a href="#" class="footer-icon" title="Sobre">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </div>
+                    
+                    <p>Antologia Poética © 2023 - Coleção de Poesias Clássicas</p>
+                    <p class="footer-note">"A poesia é o eco da melodia do universo no coração humano."</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Configurações do ebook - ATUALIZADO para 8 páginas
+        const ebookConfig = {
+            currentPage: 1,
+            totalPages: 8, // Alterado de 5 para 8
+            fontSize: 'medium',
+            theme: 'light',
+            bookmarks: [1, 4], // Atualizado para refletir novas páginas
+            toolsCollapsed: false
+        };
+
+        // Elementos DOM
+        const bookContent = document.getElementById('book-content');
+        const prevPageBtn = document.getElementById('prev-page');
+        const nextPageBtn = document.getElementById('next-page');
+        const goToPageBtn = document.getElementById('go-to-page');
+        const pageInput = document.getElementById('page-input');
+        const currentPageSpan = document.getElementById('current-page');
+        const totalPagesSpan = document.getElementById('total-pages');
+        const readingProgress = document.getElementById('reading-progress');
+        const progressPercentage = document.getElementById('progress-percentage');
+        const themeSwitch = document.getElementById('theme-switch');
+        const bookmarkPageBtn = document.getElementById('bookmark-page');
+        const bookmarksContainer = document.getElementById('bookmarks-container');
+        const bookmarkCount = document.getElementById('bookmark-count');
+        const fontSizeBtns = document.querySelectorAll('.font-size-btn');
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const readerTools = document.getElementById('reader-tools');
+        const toolsCollapseBtn = document.getElementById('tools-collapse-btn');
+
+        // Carregar configurações salvas
+        function loadSettings() {
+            const savedSettings = localStorage.getItem('ebookSettings');
+            if (savedSettings) {
+                const settings = JSON.parse(savedSettings);
+                ebookConfig.currentPage = settings.currentPage || 1;
+                ebookConfig.fontSize = settings.fontSize || 'medium';
+                ebookConfig.theme = settings.theme || 'light';
+                ebookConfig.bookmarks = settings.bookmarks || [1, 4]; // Atualizado
+                ebookConfig.toolsCollapsed = settings.toolsCollapsed || false;
+                
+                // Aplicar configurações carregadas
+                applyFontSize(ebookConfig.fontSize);
+                applyTheme(ebookConfig.theme);
+                updateBookmarksDisplay();
+                
+                // Aplicar estado colapsado
+                if (ebookConfig.toolsCollapsed) {
+                    readerTools.classList.add('tools-collapsed');
+                    toolsCollapseBtn.querySelector('i').className = 'fas fa-chevron-right';
+                }
+            }
+            
+            // Atualizar página atual
+            goToPage(ebookConfig.currentPage);
+        }
+
+        // Salvar configurações
+        function saveSettings() {
+            localStorage.setItem('ebookSettings', JSON.stringify(ebookConfig));
+        }
+
+        // Navegação entre páginas
+        function goToPage(pageNumber) {
+            if (pageNumber < 1 || pageNumber > ebookConfig.totalPages) return;
+            
+            // Esconder página atual
+            const currentPageElement = document.querySelector('.book-page.active');
+            if (currentPageElement) {
+                currentPageElement.classList.remove('active');
+            }
+            
+            // Mostrar nova página
+            const newPageElement = document.getElementById(`page-${pageNumber}`);
+            if (newPageElement) {
+                newPageElement.classList.add('active');
+                ebookConfig.currentPage = pageNumber;
+                pageInput.value = pageNumber;
+                currentPageSpan.textContent = pageNumber;
+                
+                // Atualizar progresso
+                const progress = (pageNumber / ebookConfig.totalPages) * 100;
+                readingProgress.style.width = `${progress}%`;
+                progressPercentage.textContent = `${Math.round(progress)}%`;
+                
+                // Verificar se página está marcada
+                updateBookmarkButton();
+                
+                // Atualizar exibição dos bookmarks
+                updateBookmarksDisplay();
+                
+                // Salvar configurações
+                saveSettings();
+                
+                // Scroll para o topo do conteúdo
+                bookContent.scrollTop = 0;
+            }
+        }
+
+        // Aplicar tamanho da fonte
+        function applyFontSize(size) {
+            // Remover classes de tamanho anteriores
+            bookContent.classList.remove('small-font', 'medium-font', 'large-font', 'x-large-font');
+            
+            // Adicionar nova classe
+            bookContent.classList.add(`${size}-font`);
+            
+            // Atualizar configuração
+            ebookConfig.fontSize = size;
+            
+            // Atualizar botões ativos
+            fontSizeBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.size === size) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Salvar configurações
+            saveSettings();
+        }
+
+        // Aplicar tema
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeSwitch.checked = true;
+            } else {
+                document.body.classList.remove('dark-theme');
+                themeSwitch.checked = false;
+            }
+            
+            // Atualizar configuração
+            ebookConfig.theme = theme;
+            
+            // Salvar configurações
+            saveSettings();
+        }
+
+        // Alternar bookmark
+        function toggleBookmark() {
+            const page = ebookConfig.currentPage;
+            const index = ebookConfig.bookmarks.indexOf(page);
+            
+            if (index === -1) {
+                // Adicionar bookmark
+                ebookConfig.bookmarks.push(page);
+                ebookConfig.bookmarks.sort((a, b) => a - b);
+                bookmarkPageBtn.innerHTML = '<i class="fas fa-bookmark"></i><span>Página Marcada</span>';
+                bookmarkPageBtn.classList.add('active');
+                
+                // Efeito visual
+                bookmarkPageBtn.style.animation = 'none';
+                setTimeout(() => {
+                    bookmarkPageBtn.style.animation = 'progressShimmer 2s infinite';
+                }, 10);
+                
+                // Mostrar notificação
+                showNotification('Página marcada com sucesso!');
+            } else {
+                // Remover bookmark
+                ebookConfig.bookmarks.splice(index, 1);
+                bookmarkPageBtn.innerHTML = '<i class="far fa-bookmark"></i><span>Marcar Página Atual</span>';
+                bookmarkPageBtn.classList.remove('active');
+                bookmarkPageBtn.style.animation = 'none';
+                
+                // Mostrar notificação
+                showNotification('Marcador removido.');
+            }
+            
+            // Atualizar exibição dos bookmarks
+            updateBookmarksDisplay();
+            
+            // Salvar configurações
+            saveSettings();
+        }
+
+        // Mostrar notificação
+        function showNotification(message) {
+            // Criar elemento de notificação
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: var(--primary);
+                color: var(--bg-paper);
+                padding: 12px 20px;
+                border-radius: var(--border-radius-sm);
+                box-shadow: var(--shadow-md);
+                z-index: 1000;
+                font-family: var(--font-heading);
+                animation: fadeInOut 3s ease;
+                border-left: 4px solid var(--accent);
+            `;
+            
+            // Adicionar ao corpo
+            document.body.appendChild(notification);
+            
+            // Remover após 3 segundos
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Atualizar exibição dos bookmarks
+        function updateBookmarksDisplay() {
+            // Limpar container
+            bookmarksContainer.innerHTML = '';
+            
+            // Atualizar contador
+            bookmarkCount.textContent = `(${ebookConfig.bookmarks.length})`;
+            
+            // Adicionar cada bookmark
+            ebookConfig.bookmarks.forEach(page => {
+                const bookmarkElement = document.createElement('div');
+                bookmarkElement.className = 'bookmark-tag';
+                if (page === ebookConfig.currentPage) {
+                    bookmarkElement.classList.add('active');
+                }
+                
+                // Determinar o título da página para mostrar no bookmark
+                let pageTitle = `Página ${page}`;
+                if (page === 1) pageTitle = "Capa";
+                else if (page === 2) pageTitle = "Sumário";
+                else if (page === 3) pageTitle = "Biografia";
+                else if (page === 4) pageTitle = "Poesias Séc. XIX";
+                else if (page === 5) pageTitle = "Romantismo";
+                else if (page === 6) pageTitle = "Modernismo";
+                else if (page === 7) pageTitle = "Contemporâneo";
+                else if (page === 8) pageTitle = "Anexos";
+                
+                bookmarkElement.innerHTML = `
+                    <span>${pageTitle}</span>
+                    <div class="bookmark-actions">
+                        <button class="bookmark-action-btn goto-btn" title="Ir para página">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="bookmark-action-btn remove-btn" title="Remover marcador">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                // Evento para ir para a página
+                bookmarkElement.querySelector('.goto-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goToPage(page);
+                });
+                
+                // Evento para remover bookmark
+                bookmarkElement.querySelector('.remove-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const index = ebookConfig.bookmarks.indexOf(page);
+                    if (index > -1) {
+                        ebookConfig.bookmarks.splice(index, 1);
+                        updateBookmarksDisplay();
+                        if (page === ebookConfig.currentPage) {
+                            updateBookmarkButton();
+                        }
+                        saveSettings();
+                        showNotification('Marcador removido.');
+                    }
+                });
+                
+                // Evento para ir para a página ao clicar no bookmark
+                bookmarkElement.addEventListener('click', () => {
+                    goToPage(page);
+                });
+                
+                bookmarksContainer.appendChild(bookmarkElement);
+            });
+            
+            // Se não houver bookmarks, mostrar mensagem
+            if (ebookConfig.bookmarks.length === 0) {
+                const emptyMessage = document.createElement('div');
+                emptyMessage.className = 'bookmark-tag';
+                emptyMessage.style.opacity = '0.7';
+                emptyMessage.style.justifyContent = 'center';
+                emptyMessage.innerHTML = '<span><i class="far fa-bookmark"></i> Nenhuma página marcada</span>';
+                emptyMessage.addEventListener('click', () => {
+                    toggleBookmark();
+                });
+                bookmarksContainer.appendChild(emptyMessage);
+            }
+        }
+
+        // Atualizar botão de bookmark
+        function updateBookmarkButton() {
+            const page = ebookConfig.currentPage;
+            const isBookmarked = ebookConfig.bookmarks.includes(page);
+            
+            if (isBookmarked) {
+                bookmarkPageBtn.innerHTML = '<i class="fas fa-bookmark"></i><span>Página Marcada</span>';
+                bookmarkPageBtn.classList.add('active');
+                bookmarkPageBtn.style.animation = 'progressShimmer 2s infinite';
+            } else {
+                bookmarkPageBtn.innerHTML = '<i class="far fa-bookmark"></i><span>Marcar Página Atual</span>';
+                bookmarkPageBtn.classList.remove('active');
+                bookmarkPageBtn.style.animation = 'none';
+            }
+        }
+
+        // Alternar colapso da barra de ferramentas
+        function toggleToolsCollapse() {
+            ebookConfig.toolsCollapsed = !ebookConfig.toolsCollapsed;
+            
+            if (ebookConfig.toolsCollapsed) {
+                readerTools.classList.add('tools-collapsed');
+                toolsCollapseBtn.querySelector('i').className = 'fas fa-chevron-right';
+                toolsCollapseBtn.title = 'Expandir';
+            } else {
+                readerTools.classList.remove('tools-collapsed');
+                toolsCollapseBtn.querySelector('i').className = 'fas fa-chevron-left';
+                toolsCollapseBtn.title = 'Recolher';
+            }
+            
+            saveSettings();
+        }
+
+        // Event Listeners
+        prevPageBtn.addEventListener('click', () => goToPage(ebookConfig.currentPage - 1));
+        nextPageBtn.addEventListener('click', () => goToPage(ebookConfig.currentPage + 1));
+        goToPageBtn.addEventListener('click', () => {
+            const page = parseInt(pageInput.value);
+            if (!isNaN(page)) {
+                goToPage(page);
+            }
+        });
+        
+        pageInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                const page = parseInt(pageInput.value);
+                if (!isNaN(page)) {
+                    goToPage(page);
+                }
+            }
+        });
+
+        // Tamanho da fonte
+        fontSizeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyFontSize(btn.dataset.size);
+            });
+        });
+
+        // Alternar tema
+        themeSwitch.addEventListener('change', () => {
+            if (themeSwitch.checked) {
+                applyTheme('dark');
+            } else {
+                applyTheme('light');
+            }
+        });
+
+        // Bookmark
+        bookmarkPageBtn.addEventListener('click', toggleBookmark);
+
+        // Menu mobile
+        mobileMenuToggle.addEventListener('click', () => {
+            readerTools.classList.toggle('mobile-open');
+            mobileMenuToggle.querySelector('i').className = 
+                readerTools.classList.contains('mobile-open') ? 'fas fa-times' : 'fas fa-bars';
+        });
+
+        // Colapso da barra de ferramentas
+        toolsCollapseBtn.addEventListener('click', toggleToolsCollapse);
+
+        // Inicializar
+        function init() {
+            // Definir total de páginas
+            totalPagesSpan.textContent = ebookConfig.totalPages;
+            pageInput.max = ebookConfig.totalPages;
+            
+            // Carregar configurações
+            loadSettings();
+            
+            // Atualizar progresso inicial
+            const progress = (ebookConfig.currentPage / ebookConfig.totalPages) * 100;
+            readingProgress.style.width = `${progress}%`;
+            progressPercentage.textContent = `${Math.round(progress)}%`;
+            
+            // Atualizar botão de bookmark
+            updateBookmarkButton();
+            
+            // Adicionar animação CSS para notificação
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInOut {
+                    0% { opacity: 0; transform: translateY(-20px); }
+                    15% { opacity: 1; transform: translateY(0); }
+                    85% { opacity: 1; transform: translateY(0); }
+                    100% { opacity: 0; transform: translateY(-20px); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Inicializar quando o DOM estiver carregado
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Teclas de atalho
+        document.addEventListener('keydown', (e) => {
+            // Seta esquerda: página anterior
+            if (e.key === 'ArrowLeft') {
+                goToPage(ebookConfig.currentPage - 1);
+            }
+            // Seta direita: próxima página
+            else if (e.key === 'ArrowRight') {
+                goToPage(ebookConfig.currentPage + 1);
+            }
+            // Ctrl + +: aumentar fonte
+            else if (e.ctrlKey && e.key === '+') {
+                e.preventDefault();
+                const sizes = ['small', 'medium', 'large', 'x-large'];
+                const currentIndex = sizes.indexOf(ebookConfig.fontSize);
+                if (currentIndex < sizes.length - 1) {
+                    applyFontSize(sizes[currentIndex + 1]);
+                }
+            }
+            // Ctrl + -: diminuir fonte
+            else if (e.ctrlKey && e.key === '-') {
+                e.preventDefault();
+                const sizes = ['small', 'medium', 'large', 'x-large'];
+                const currentIndex = sizes.indexOf(ebookConfig.fontSize);
+                if (currentIndex > 0) {
+                    applyFontSize(sizes[currentIndex - 1]);
+                }
+            }
+            // Ctrl + B: alternar bookmark
+            else if (e.ctrlKey && e.key === 'b') {
+                e.preventDefault();
+                toggleBookmark();
+            }
+            // Ctrl + D: alternar tema
+            else if (e.ctrlKey && e.key === 'd') {
+                e.preventDefault();
+                if (ebookConfig.theme === 'light') {
+                    applyTheme('dark');
+                } else {
+                    applyTheme('light');
+                }
+            }
+            // Ctrl + T: alternar barra de ferramentas
+            else if (e.ctrlKey && e.key === 't') {
+                e.preventDefault();
+                toggleToolsCollapse();
+            }
+            // Ctrl + H: ir para capa (home)
+            else if (e.ctrlKey && e.key === 'h') {
+                e.preventDefault();
+                goToPage(1);
+            }
+            // Ctrl + S: ir para sumário
+            else if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                goToPage(2);
+            }
+        });
+    </script>
+</body>
+</html>
