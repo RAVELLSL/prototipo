@@ -893,6 +893,7 @@
             justify-content: space-between;
             align-items: center;
             transition: var(--transition);
+            cursor: pointer; /* Torna o item clicável visualmente */
         }
 
         .toc-item:hover {
@@ -1773,22 +1774,22 @@
                         </div>
                     </div>
                     
-                    <!-- Página 2: Sumário -->
+                    <!-- Página 2: Sumário (agora com links clicáveis) -->
                     <div class="book-page toc-page" id="page-2" role="region" aria-label="Página 2 - Sumário">
                         <h2>Sumário</h2>
                         
                         <div class="toc-section">
                             <div class="toc-section-title">Introdução</div>
                             <ul class="toc-list">
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="1" tabindex="0" role="link">
                                     <span class="toc-item-title">Capa</span>
                                     <span class="toc-item-page">1</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="2" tabindex="0" role="link">
                                     <span class="toc-item-title">Sumário</span>
                                     <span class="toc-item-page">2</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="3" tabindex="0" role="link">
                                     <span class="toc-item-title">Biografia da Autora</span>
                                     <span class="toc-item-page">3</span>
                                 </li>
@@ -1798,35 +1799,35 @@
                         <div class="toc-section">
                             <div class="toc-section-title">Poemas de Rejane Mansur</div>
                             <ul class="toc-list">
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="4" tabindex="0" role="link">
                                     <span class="toc-item-title">O Silêncio das Folhas</span>
                                     <span class="toc-item-page">4</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="4" tabindex="0" role="link">
                                     <span class="toc-item-title">Retrato de Ausência</span>
                                     <span class="toc-item-page">4</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="5" tabindex="0" role="link">
                                     <span class="toc-item-title">Maré de Afetos</span>
                                     <span class="toc-item-page">5</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="5" tabindex="0" role="link">
                                     <span class="toc-item-title">Jardim Secreto</span>
                                     <span class="toc-item-page">5</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="6" tabindex="0" role="link">
                                     <span class="toc-item-title">Caminho de Pedras</span>
                                     <span class="toc-item-page">6</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="6" tabindex="0" role="link">
                                     <span class="toc-item-title">O Poeta e a Rosa</span>
                                     <span class="toc-item-page">6</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="7" tabindex="0" role="link">
                                     <span class="toc-item-title">Memórias do Vento</span>
                                     <span class="toc-item-page">7</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="7" tabindex="0" role="link">
                                     <span class="toc-item-title">Canto Noturno</span>
                                     <span class="toc-item-page">7</span>
                                 </li>
@@ -1836,11 +1837,11 @@
                         <div class="toc-section">
                             <div class="toc-section-title">Anexos</div>
                             <ul class="toc-list">
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="8" tabindex="0" role="link">
                                     <span class="toc-item-title">Notas sobre a Obra</span>
                                     <span class="toc-item-page">8</span>
                                 </li>
-                                <li class="toc-item">
+                                <li class="toc-item" data-page="8" tabindex="0" role="link">
                                     <span class="toc-item-title">Cronologia</span>
                                     <span class="toc-item-page">8</span>
                                 </li>
@@ -2661,6 +2662,21 @@
                         e.preventDefault();
                         goToPage(2);
                     }
+                });
+
+                // Adicionar listeners para os itens do sumário (tornar clicáveis)
+                document.querySelectorAll('.toc-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const page = item.dataset.page;
+                        if (page) goToPage(parseInt(page));
+                    });
+                    item.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const page = item.dataset.page;
+                            if (page) goToPage(parseInt(page));
+                        }
+                    });
                 });
             }
 
