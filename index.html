@@ -1377,7 +1377,7 @@
             
             .book-content-container {
                 min-height: calc(100vh - 200px);
-                margin-bottom: 80px;
+                margin-bottom: 20px; /* Reduzido de 80px para 20px, pois a barra inferior foi removida */
             }
             
             .book-content {
@@ -1425,75 +1425,11 @@
                 gap: 5px;
             }
             
-            .mobile-bottom-nav {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background-color: var(--bg-paper);
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                border-top: 1px solid var(--border);
-                padding: 12px 15px;
-                z-index: 90;
-                box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            .dark-theme .mobile-bottom-nav {
-                background-color: var(--bg-paper-dark);
-            }
-            
-            .mobile-nav-btn {
-                background-color: var(--primary);
-                color: var(--bg-paper);
-                border: none;
-                padding: 12px 15px;
-                border-radius: var(--border-radius-md);
-                cursor: pointer;
-                transition: var(--transition);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                font-family: var(--font-heading);
-                font-weight: 500;
-                font-size: 0.9rem;
-                flex: 1;
-                min-height: 48px;
-            }
-            
-            .mobile-nav-btn:active {
-                transform: scale(0.98);
-            }
-            
-            .mobile-page-indicator {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                background-color: rgba(255, 255, 255, 0.6);
-                backdrop-filter: blur(5px);
-                -webkit-backdrop-filter: blur(5px);
-                padding: 10px 15px;
-                border-radius: var(--border-radius-md);
-                border: 1px solid var(--border);
-                font-family: var(--font-heading);
-                font-weight: 500;
-                font-size: 0.9rem;
-                min-width: 120px;
-            }
-            
-            .dark-theme .mobile-page-indicator {
-                background-color: rgba(0, 0, 0, 0.3);
-            }
+            /* A barra de navegação inferior foi removida conforme solicitação */
             
             .mobile-quick-actions {
                 position: fixed;
-                bottom: 70px;
+                bottom: 20px;
                 right: 15px;
                 z-index: 80;
                 display: flex;
@@ -1562,19 +1498,13 @@
                     padding: 20px;
                     min-height: calc(100vh - 150px);
                 }
-                
-                .mobile-bottom-nav {
-                    padding: 8px 15px;
-                }
             }
             
             @media (max-width: 360px) {
-                .mobile-nav-btn span {
-                    display: none;
-                }
-                
-                .mobile-page-indicator {
-                    min-width: 100px;
+                .mobile-quick-btn {
+                    width: 44px;
+                    height: 44px;
+                    font-size: 1rem;
                 }
             }
         }
@@ -2474,11 +2404,7 @@
             function updateMobileUI() {
                 if (!ebookConfig.isMobile) return;
                 
-                const bottomCurrent = document.getElementById('bottom-current-page');
-                const bottomTotal = document.getElementById('bottom-total-pages');
-                if (bottomCurrent) bottomCurrent.textContent = ebookConfig.currentPage;
-                if (bottomTotal) bottomTotal.textContent = ebookConfig.totalPages;
-                
+                // Atualiza apenas o botão de bookmark rápido (a barra inferior foi removida)
                 updateQuickBookmarkButton();
             }
 
@@ -2494,22 +2420,8 @@
             function createMobileElements() {
                 if (!ebookConfig.isMobile || mobileElementsCreated) return;
                 
-                // Navegação inferior
-                if (!document.getElementById('bottom-prev-btn')) {
-                    const bottomNav = document.createElement('div');
-                    bottomNav.className = 'mobile-bottom-nav';
-                    bottomNav.innerHTML = `
-                        <button class="mobile-nav-btn" id="bottom-prev-btn" aria-label="Página anterior"><i class="fas fa-chevron-left"></i><span>Anterior</span></button>
-                        <div class="mobile-page-indicator" aria-live="polite" aria-atomic="true">
-                            <span id="bottom-current-page">${ebookConfig.currentPage}</span><span>de</span><span id="bottom-total-pages">${ebookConfig.totalPages}</span>
-                        </div>
-                        <button class="mobile-nav-btn" id="bottom-next-btn" aria-label="Próxima página"><span>Próxima</span><i class="fas fa-chevron-right"></i></button>
-                    `;
-                    document.querySelector('.main-content').appendChild(bottomNav);
-                    
-                    document.getElementById('bottom-prev-btn').addEventListener('click', () => goToPage(ebookConfig.currentPage - 1));
-                    document.getElementById('bottom-next-btn').addEventListener('click', () => goToPage(ebookConfig.currentPage + 1));
-                }
+                // A barra de navegação inferior foi removida conforme solicitação.
+                // Mantemos apenas os botões de ação rápida (bookmark e tools).
                 
                 // Botões de ação rápida
                 if (!document.getElementById('quick-bookmark-btn')) {
